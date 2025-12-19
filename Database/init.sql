@@ -7,30 +7,29 @@ GO
 USE EventManagement;
 GO
 
-IF OBJECT_ID('Roles', 'U') IS NULL
 CREATE TABLE Roles (
     Role_Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
     Role_Name VARCHAR(50) NOT NULL UNIQUE
 );
+GO
 
-IF OBJECT_ID('Categories', 'U') IS NULL
 CREATE TABLE Categories (
     Category_Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
     Category_Name VARCHAR(50) NOT NULL UNIQUE,
     Is_Active BIT DEFAULT 1
 );
+GO
 
-IF OBJECT_ID('Users', 'U') IS NULL
 CREATE TABLE Users (
     User_Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
     User_Email VARCHAR(254) NOT NULL UNIQUE,
-    Password VARCHAR(20) NOT NULL,
+    Password VARCHAR(50) NOT NULL,
     Role_Id UNIQUEIDENTIFIER NOT NULL,
     Is_Active BIT DEFAULT 1,
     FOREIGN KEY (Role_Id) REFERENCES Roles(Role_Id)
 );
+GO
 
-IF OBJECT_ID('User_Preferences', 'U') IS NULL
 CREATE TABLE User_Preferences (
     Preference_Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
     User_Id UNIQUEIDENTIFIER NOT NULL,
@@ -39,11 +38,11 @@ CREATE TABLE User_Preferences (
     FOREIGN KEY (User_Id) REFERENCES Users(User_Id),
     FOREIGN KEY (Category_Id) REFERENCES Categories(Category_Id)
 );
+GO
 
-IF OBJECT_ID('Time_Slots', 'U') IS NULL
 CREATE TABLE Time_Slots (
     Slot_Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
-    Title TEXT NOT NULL,
+    Title VARCHAR(255) NOT NULL,
     Start_At DATETIME2 NOT NULL,
     End_At DATETIME2 NOT NULL,
     Category_Id UNIQUEIDENTIFIER NOT NULL,
@@ -52,12 +51,15 @@ CREATE TABLE Time_Slots (
     FOREIGN KEY (Category_Id) REFERENCES Categories(Category_Id),
     FOREIGN KEY (Booked_By) REFERENCES Users(User_Id)
 );
+GO
 
 IF NOT EXISTS (SELECT 1 FROM Roles)
-INSERT INTO Roles(Role_Name) VALUES ('Admin'), ('User');
+INSERT INTO Roles (Role_Name) VALUES ('Admin'), ('User');
+GO
 
 IF NOT EXISTS (SELECT 1 FROM Categories)
-INSERT INTO Categories(Category_Name) VALUES ('Yoga'), ('Body Building');
+INSERT INTO Categories (Category_Name) VALUES ('Yoga'), ('Body Building');
+GO
 
 IF NOT EXISTS (SELECT 1 FROM Users WHERE User_Email = 'interviewer@cts.com')
 INSERT INTO Users (User_Email, Password, Role_Id)
@@ -66,3 +68,4 @@ VALUES (
     'Admin@123',
     (SELECT Role_Id FROM Roles WHERE Role_Name = 'Admin')
 );
+GO

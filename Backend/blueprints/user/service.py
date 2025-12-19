@@ -28,8 +28,10 @@ def create_user(data):
         return error(str(e))
 
     finally:
-        cursor.close()
-        conn.close()
+        if cursor:
+            cursor.close()
+        if conn: 
+            conn.close()
 
 
 def login_user(data):

@@ -85,3 +85,13 @@ Password: Admin@123
 ## Summary
 
 A fully Dockerized React + Flask + MSSQL application that runs with a single command and requires no manual setup.
+
+
+## Aplication flow
+
+### Signup 
+
+* User can able to create the account by using emailid password (Default role will be 'User')
+![alt text](signup.png)
+
+### 
