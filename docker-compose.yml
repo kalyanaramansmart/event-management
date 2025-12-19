@@ -1,0 +1,53 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: mssql
+    environment:
+      SA_PASSWORD: "Admin@123"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+
+  db-init:
+    image: mcr.microsoft.com/mssql-tools
+    depends_on:
+      - db
+    volumes:
+      - ./Database/init.sql:/init.sql
+    entrypoint: >
+      /bin/bash -c "
+      echo 'Waiting for SQL Server...';
+      sleep 20;
+      /opt/mssql-tools/bin/sqlcmd
+        -S db
+        -U sa
+        -P Admin@123
+        -C
+        -i /init.sql;
+      echo 'Database initialized';
+      "
+
+  backend:
+    build: ./Backend
+    container_name: flask-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./Backend/.env
+    depends_on:
+      - db-init
+
+  frontend:
+    build: ./Frontend
+    container_name: react-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_BASE_URL: http://localhost:5000
+    depends_on:
+      - backend
+
+volumes:
+  mssql_data:

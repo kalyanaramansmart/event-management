@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Create New Event</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="modal-overlay">
+      <div class="event-modal">
+        <h3>Create New Event</h3>
+
+        <form>
+          <div class="form-group">
+            <label>Event Title</label>
+            <input type="text" placeholder="Enter event title" />
+          </div>
+
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" />
+          </div>
+
+          <div class="time-row">
+            <div class="form-group">
+              <label>Start</label>
+              <input type="time" />
+            </div>
+
+            <div class="form-group">
+              <label>End</label>
+              <input type="time" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Categories</label>
+            <select>
+              <option>Select category</option>
+              <option>Cat 1</option>
+              <option>Cat 2</option>x
+              <option>Cat 3</option>
+            </select>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn-cancel">Cancel</button>
+            <button type="submit" class="btn-primary">Create Event</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
