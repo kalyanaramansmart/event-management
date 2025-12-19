@@ -1,0 +1,626 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page background */
+body {
+  height: 100vh;
+  background: #f4faf6; /* very light green */
+}
+
+/* Center card */
+.page-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Login card */
+.login-card {
+  width: 360px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 10px;
+  border: 1px solid #dcefe3;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Title */
+.title {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #2f6f4e; /* positive green */
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #4b6b5c;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #cfe3d8;
+  outline: none;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  border-color: #5cb085;
+  box-shadow: 0 0 0 2px rgba(92, 176, 133, 0.15);
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 6px;
+  background: #cfead6; /* light positive green */
+  color: #1f5f3d;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #b9dfc6;
+}
+
+/* Signup text */
+.signup-text {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 13px;
+  color: #555;
+}
+
+.signup-text a {
+  color: #2f8f5f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   SIGNUP PAGE STYLES
+   ========================= */
+
+.signup-card {
+  width: 380px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 10px;
+  border: 1px solid #dcefe3;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Signup button (slightly different name, same theme) */
+.signup-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #cfead6;
+  color: #1f5f3d;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signup-btn:hover {
+  background: #b9dfc6;
+}
+
+/* Bottom text */
+.login-text {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 13px;
+  color: #555;
+}
+
+.login-text a {
+  color: #2f8f5f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-text a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   WEEKLY CALENDAR (SCOPED)
+   ========================= */
+
+.calendar-page {
+  padding: 16px;
+}
+
+/* Header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.calendar-header h2 {
+  color: #2f6f4e;
+}
+
+.calendar-page .actions {
+  display: flex;
+  gap: 10px;
+}
+
+.calendar-page .btn-outline {
+  border: 1px solid #5cb085;
+  background: transparent;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #2f6f4e;
+  cursor: pointer;
+}
+
+.calendar-page .btn-primary {
+  background: #cfead6;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #1f5f3d;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.calendar-page select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #cfe3d8;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: 80px repeat(7, 1fr);
+  grid-auto-rows: 60px;
+  background: #fff;
+  border: 1px solid #dcefe3;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.corner-cell {
+  background: #f4faf6;
+}
+
+.day-header {
+  background: #f4faf6;
+  text-align: center;
+  font-weight: 600;
+  color: #2f6f4e;
+  line-height: 60px;
+  border-bottom: 1px solid #dcefe3;
+}
+
+.time-cell {
+  background: #f4faf6;
+  font-size: 12px;
+  color: #4b6b5c;
+  padding: 6px;
+  border-right: 1px solid #dcefe3;
+}
+
+.slot {
+  border-bottom: 1px solid #e6f2eb;
+  border-right: 1px solid #e6f2eb;
+}
+
+.slot.event {
+  background: #cfead6;
+  color: #1f5f3d;
+  font-size: 12px;
+  padding: 6px;
+  font-weight: 500;
+}
+
+/* =========================
+   CREATE EVENT MODAL
+   ========================= */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.event-modal {
+  width: 360px;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid #dcefe3;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.event-modal h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2f6f4e;
+}
+
+/* Reuse existing form-group styles */
+.event-modal .form-group {
+  margin-bottom: 14px;
+}
+
+.event-modal label {
+  display: block;
+  font-size: 14px;
+  color: #4b6b5c;
+  margin-bottom: 6px;
+}
+
+.event-modal input,
+.event-modal select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #cfe3d8;
+  font-size: 14px;
+}
+
+.event-modal input:focus,
+.event-modal select:focus {
+  outline: none;
+  border-color: #5cb085;
+  box-shadow: 0 0 0 2px rgba(92, 176, 133, 0.15);
+}
+
+/* Start / End row */
+.time-row {
+  display: flex;
+  gap: 12px;
+}
+
+/* Actions */
+.modal-actions {
+  display: flex;
+  justify-content: center; /* center buttons */
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.modal-actions button {
+  min-width: 110px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.btn-cancel {
+  background: #ffffff;
+  border: 1px solid #b6d6c4;
+  color: #2f6f4e;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background: #f4faf6;
+}
+
+.event-modal .btn-primary {
+  background: #cfead6;
+  border: none;
+  color: #1f5f3d;
+  cursor: pointer;
+}
+
+.event-modal .btn-primary:hover {
+  background: #b9dfc6;
+}
+
+/* =========================
+   CATEGORIES PAGE (FINAL)
+   ========================= */
+
+.categories-wrapper {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #cfe3d8;
+}
+
+/* Header */
+.categories-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.categories-header h2 {
+  color: #2f6f4e;
+  font-weight: 600;
+}
+
+/* Row */
+.category-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+/* Input */
+.category-row input {
+  flex: 1;
+  height: 40px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #cfe3d8;
+  font-size: 14px;
+  color: #2f6f4e;
+  background: #ffffff;
+}
+
+.category-row input:disabled {
+  color: #2f6f4e;
+  cursor: default;
+}
+
+/* Buttons (reusing your theme) */
+.categories-wrapper .btn-primary {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.categories-wrapper .btn-outline {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: #cfead6;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #1f5f3d;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-outline {
+  border: 1px solid #5cb085;
+  background: transparent;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #2f6f4e;
+  cursor: pointer;
+}
+
+/* =========================
+   UPDATE / DELETE CATEGORY MODAL
+   ========================= */
+.category-modal {
+  width: 420px; /* FIX: more breathing space */
+  max-width: 90%;
+  background: #ffffff;
+  padding: 28px 24px 24px;
+  border-radius: 12px;
+  border: 1px solid #dcefe3;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+.category-modal h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2f6f4e;
+}
+
+.category-modal .form-group {
+  margin-bottom: 20px;
+}
+
+.category-modal label {
+  display: block;
+  font-size: 14px;
+  color: #4b6b5c;
+  margin-bottom: 6px;
+}
+
+.category-modal input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #cfe3d8;
+  font-size: 14px;
+}
+
+/* Modal buttons layout */
+.category-modal .modal-actions.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 26px;
+  flex-wrap: nowrap; /* 🔑 prevent break */
+  /* overflow: hidden; 🔑 keep inside modal */
+}
+
+/* Danger button */
+.btn-danger {
+  background: #fbe4e6;
+  border: none;
+  border-radius: 6px;
+  color: #8a1f2d;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background: #f6cdd1;
+}
+
+/* Add breathing space before buttons */
+
+.category-modal .modal-actions.center button {
+  min-width: 120px;
+  padding: 8px 14px; /* reduced height */
+  font-size: 13px; /* slightly smaller */
+  font-weight: 600;
+  white-space: nowrap;
+}
+/* Slightly more space below input */
+.category-modal .form-group {
+  margin-bottom: 24px;
+}
+
+.category-modal .btn-outline {
+  border: 1px solid #7fc49d; /* lighter green */
+}
+.category-modal .modal-actions.center {
+  margin-top: 30px; /* more breathing room */
+}
+
+.category-modal input {
+  padding: 8px 10px;
+}
+
+.category-modal .modal-actions.center button {
+  min-width: 110px; /* slightly smaller */
+  padding: 8px 14px;
+  box-sizing: border-box;
+}
+
+.category-modal {
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   USER PREFERENCES MODAL
+   ========================= */
+
+.preferences-modal {
+  width: 380px;
+  max-width: 90%;
+  background: #ffffff;
+  padding: 28px 24px;
+  border-radius: 12px;
+  border: 1px solid #dcefe3;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.preferences-modal h3 {
+  text-align: center;
+  margin-bottom: 22px;
+  color: #2f6f4e;
+  font-weight: 600;
+}
+
+/* Checkbox list */
+.preferences-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #2f6f4e;
+  cursor: pointer;
+}
+
+.checkbox-row input {
+  width: 16px;
+  height: 16px;
+  accent-color: #5cb085; /* modern green checkbox */
+}
+
+.error-text {
+  color: red;
+  font-size: large;
+}
+
+.event-card {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+
+  background: #d8f1df;
+  color: #0a5c2b;
+
+  border-radius: 6px;
+  padding: 6px 8px;
+
+  font-size: 12px;
+  line-height: 1.3;
+
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.slot {
+  position: relative; /* REQUIRED for absolute child */
+  height: 60px; /* 1 hour = 60px */
+  border: 1px solid #e5efe9;
+  background: #ffffff;
+}
+
+/* ===== FIX DAY HEADER DATE VISIBILITY (SAFE OVERRIDE) ===== */
+
+.calendar-grid .day-header {
+  line-height: normal; /* 🔑 override old line-height */
+  padding: 6px 0;
+}
+
+.calendar-grid .day-header .day-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2f6f4e;
+  line-height: 18px;
+}
+
+.calendar-grid .day-header .day-date {
+  font-size: 12px;
+  color: #6b8f80;
+  line-height: 16px;
+}
