@@ -92,6 +92,29 @@ A fully Dockerized React + Flask + MSSQL application that runs with a single com
 ### Signup 
 
 * User can able to create the account by using emailid password (Default role will be 'User')
-![alt text](signup.png)
 
-### 
+### Login
+
+* User can able to login with the account they have created (Admin creds are mentioned above)
+
+### Calender Page
+
+#### For Admin
+* Can able to go to view all category
+* Can choose category to filter
+* Have a button to create new event
+
+
+#### For user
+* Can able to see all the events if they want thay can able to choose the category preference from the drop down
+* have an checkbox to filterout the event book by him
+
+### Event page
+
+# Admin
+* Can create/Update or delete the event
+
+# User
+* Can able to book the event or unbook if booked by other user means can see the event data
+
+
